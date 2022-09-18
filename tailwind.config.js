@@ -5,7 +5,9 @@ module.exports = {
   theme: {
     colors: {
       primary: {
+        50: "#fbecdd",
         600: "#ce7924",
+        900: "#b75d03",
       },
       "light-grey": "#f5f0eb",
       white: "#ffffff",
@@ -24,6 +26,7 @@ module.exports = {
     },
     extend: {
       spacing: {
+        4.5: "1.125rem", //18px
         7.5: "1.875rem", //30px
         25: "6.25rem", //100px
       },

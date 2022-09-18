@@ -6,6 +6,7 @@ body {
   @apply text-content;
 }
 
-input {
-  @apply border-line focus:border-line-focus rounded border py-3 px-4;
+input,
+select {
+  @apply border-line focus:border-line-focus hover:border-line-focus rounded border py-3 px-4;
 }
