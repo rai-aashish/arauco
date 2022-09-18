@@ -10,6 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./src//libraries/css/nice-select2.css" />
     <title>Arauco</title>
   </head>
   <body>
@@ -213,9 +214,26 @@
             <!-- //? START: Barcode Type ID FIELD -->
             <div class="">
               <label class="mb-1 block"> Barcode Type ID</label>
-              <select class="w-full">
-                <option disabled selected>Select</option>
+              <select class="w-full" id="barcode-type">
+                <option value="1">Option 1</option>
+                <option>Option 2</option>
+                <option>Option 3</option>
               </select>
+
+              <!-- //? custom select template -->
+              <template id="custom-select">
+                <div class="relative">
+                  <div
+                    class="selected-preview border-line focus:border-line-focus hover:border-line-focus relative cursor-pointer rounded border py-3 px-4"
+                  >
+                    Select
+                  </div>
+                  <div
+                    class="options border-line shadow-primary absolute z-20 mt-1 hidden max-h-[17.625rem] w-full overflow-y-auto rounded border bg-white"
+                  ></div>
+                </div>
+              </template>
+              <!-- //? end custom select template -->
             </div>
             <!-- //? END: SKU FIELD -->
 
@@ -252,6 +270,8 @@
     </div>
     <!-- //? END: FORM REGION -->
 
+    <!-- //? JS IMPORTS -->
     <script type="module" src="./src/main.js"></script>
+    <script type="module" src="./src/js/custom-select.js"></script>
   </body>
 </html>

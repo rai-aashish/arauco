@@ -9,6 +9,7 @@ module.exports = {
         600: "#ce7924",
         900: "#b75d03",
       },
+      grey: "#eeeeee",
       "light-grey": "#f5f0eb",
       white: "#ffffff",
       content: {
@@ -26,6 +27,7 @@ module.exports = {
     },
     extend: {
       spacing: {
+        3.5: "0.875rem", //14px
         4.5: "1.125rem", //18px
         7.5: "1.875rem", //30px
         25: "6.25rem", //100px
