@@ -1,5 +1,4 @@
 const BarcodeTypeSelect = document.getElementById("barcode-type");
-
 BarcodeTypeSelect.style.display = "none";
 
 const options = Array.apply(null, BarcodeTypeSelect.options).map((option) => {
@@ -70,7 +69,7 @@ function changeSelectedOption(newOption) {
   selectedOption = newOption;
   // ? change option selected in original select
   BarcodeTypeSelect.innerHTML = options.map((option) => {
-    return `<option value="${newOption.value}" ${
+    return `<option value="${option.value}" ${
       newOption.value === option.value ? "selected" : ""
     }>${option.text}</option>`;
   });
