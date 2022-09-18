@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-a {
-  @apply text-blue-500 hover:text-blue-400 hover:underline transition-all;
+body {
+  @apply text-content;
+}
+
+input {
+  @apply border-line focus:border-line-focus rounded border py-3 px-4;
 }
