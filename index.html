@@ -30,7 +30,7 @@
         >
           <h3 class="text-center text-[1.5rem] font-bold">BARCODE MODULE</h3>
 
-          <form class="mt-6 flex flex-col gap-y-4">
+          <form class="mt-6 flex flex-col gap-y-4" id="barcode-module-form">
             <!-- //? START: SKU FIELD -->
             <div class="">
               <label class="mb-1 block">
@@ -214,10 +214,11 @@
             <!-- //? START: Barcode Type ID FIELD -->
             <div class="">
               <label class="mb-1 block"> Barcode Type ID</label>
-              <select class="w-full" id="barcode-type">
+              <select class="w-full" id="barcode-type" name="barcode-type-id">
+                <option></option>
                 <option value="1">Option 1</option>
-                <option>Option 2</option>
-                <option>Option 3</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
               </select>
 
               <!-- //? custom select template -->
@@ -273,5 +274,6 @@
     <!-- //? JS IMPORTS -->
     <script type="module" src="./src/main.js"></script>
     <script type="module" src="./src/js/custom-select.js"></script>
+    <script type="module" src="./src/js/form.js"></script>
   </body>
 </html>

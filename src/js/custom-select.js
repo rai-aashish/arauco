@@ -14,10 +14,12 @@ const CustomSelect = document
   .content.cloneNode(true);
 
 const CustomSelectOptions = CustomSelect.querySelector(".options");
+const CustomSelectSelected = CustomSelect.querySelector(".selected-preview");
+
 //?  STATE VARIABLES
 var selectedOption = null;
 
-CustomSelect.querySelector(".selected-preview").onclick = () => {
+CustomSelectSelected.onclick = () => {
   if (CustomSelectOptions.classList.contains("block")) hideCustomOptions();
   else showCustomOptions();
 };
@@ -27,8 +29,7 @@ createCustomOptions();
 
 //? to close slect on outside click
 window.addEventListener("click", (e) => {
-  if (!e.target.contains(CustomSelectOptions)) return;
-  hideCustomOptions();
+  if (e.target.contains(CustomSelectOptions)) hideCustomOptions();
 });
 
 //? Append all data
@@ -48,6 +49,8 @@ function showCustomOptions() {
 function createCustomOptions() {
   CustomSelectOptions.innerHTML = "";
   options.map((option) => {
+    if (!option?.text || !option?.value) return;
+
     const CustomOption = document.createElement("div");
     CustomOption.setAttribute(
       "class",
@@ -66,8 +69,12 @@ function createCustomOptions() {
 function changeSelectedOption(newOption) {
   selectedOption = newOption;
   // ? change option selected in original select
-  BarcodeTypeSelect.innerHTML = "";
-  BarcodeTypeSelect;
+  BarcodeTypeSelect.innerHTML = options.map((option) => {
+    return `<option value="${newOption.value}" ${
+      newOption.value === option.value ? "selected" : ""
+    }>${option.text}</option>`;
+  });
   createCustomOptions();
+  CustomSelectSelected.innerText = selectedOption.text;
   hideCustomOptions();
 }
