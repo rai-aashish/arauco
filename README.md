@@ -1,5 +1,7 @@
 # template-vite-js-tailwind-v3
 
+## POWERED BY
+
 - **template of:** vite + vanilaJS
 - **tailwindcss:** v3.x
 
@@ -28,8 +30,4 @@ yarn build
 # or `npm run build`
 ```
 
----
-
-<p align="center">
-<img src="./powered-by-vitawind-bright.png">
-</p>
+Build is served at `dist` folder
