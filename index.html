@@ -23,23 +23,27 @@
       <!-- //? END: COVER IMAGE -->
 
       <!-- //? START: FORM REGION -->
-      <div class="gap-x-7.5 bg-w relative z-10 grid grid-cols-12">
+      <div
+        class="gap-x-7.5 bg-w relative z-10 grid grid-cols-4 md:grid-cols-12"
+      >
         <div
-          class="mt-25 shadow-primary col-span-6 col-start-4 rounded bg-white py-16 px-12"
+          class="mt-25 shadow-primary col-span-4 mx-6 rounded bg-white py-16 px-12 md:col-span-10 md:col-start-2 md:mx-0 lg:col-span-6 lg:col-start-4"
         >
           <h3 class="text-center text-[1.5rem] font-bold">BARCODE MODULE</h3>
 
-          <form class="mt-6 flex flex-col gap-y-4">
+          <form class="mt-6 flex flex-col gap-y-4" id="barcode-module-form">
             <!-- //? START: SKU FIELD -->
-            <div class="">
+            <div class="sku-field">
               <label class="mb-1 block">
                 SKU <span class="text-error-base">*</span></label
               >
               <input
+                name="sku"
                 class="w-full"
                 type="text"
                 value="5047447-XR03604444444444444444444444444"
               />
+              <div class="error-field text-error-base mt-1 empty:hidden"></div>
             </div>
             <!-- //? END: SKU FIELD -->
 
@@ -49,6 +53,7 @@
               <input
                 class="w-full"
                 type="text"
+                name="description"
                 value="MPPRBD E2E 17MM 3 1/2x97 P3RMN"
               />
             </div>
@@ -58,7 +63,12 @@
             <div class="flex gap-x-[1.625rem]">
               <div class="flex-1">
                 <label class="mb-1 block"> UPC Piece</label>
-                <input class="w-full" type="text" value="859385003096" />
+                <input
+                  class="w-full"
+                  type="text"
+                  value="859385003096"
+                  name="upc-piece"
+                />
               </div>
 
               <div>
@@ -66,7 +76,12 @@
                 <div
                   class="border-line focus:border-line-focus px-4; flex w-[9.563rem] items-center justify-between rounded border py-1"
                 >
-                  <button type="button" class="px-4 py-2">
+                  <input type="hidden" value="1" name="upc-piece-quantity" />
+                  <button
+                    id="upc-piece-quantity-btn-decrease"
+                    type="button"
+                    class="px-4 py-2"
+                  >
                     <svg
                       width="16"
                       height="16"
@@ -83,8 +98,12 @@
                       />
                     </svg>
                   </button>
-                  <span>1</span>
-                  <button type="button" class="px-4 py-2">
+                  <span id="upc-piece-quantity-display">1</span>
+                  <button
+                    id="upc-piece-quantity-btn-increase"
+                    type="button"
+                    class="px-4 py-2"
+                  >
                     <svg
                       width="16"
                       height="16"
@@ -110,7 +129,12 @@
             <div class="flex gap-x-[1.625rem]">
               <div class="flex-1">
                 <label class="mb-1 block">UPC Sub Unit</label>
-                <input class="w-full" type="text" value="859385003096" />
+                <input
+                  class="w-full"
+                  type="text"
+                  name="upc-sub-unit"
+                  value="859385003096"
+                />
               </div>
 
               <div>
@@ -118,7 +142,12 @@
                 <div
                   class="border-line focus:border-line-focus px-4; flex w-[9.563rem] items-center justify-between rounded border py-1"
                 >
-                  <button type="button" class="px-4 py-2">
+                  <input type="hidden" name="upc-sub-unit-quantity" value="1" />
+                  <button
+                    type="button"
+                    class="px-4 py-2"
+                    id="upc-sub-quantity-btn-decrease"
+                  >
                     <svg
                       width="16"
                       height="16"
@@ -135,8 +164,12 @@
                       />
                     </svg>
                   </button>
-                  <span>1</span>
-                  <button type="button" class="px-4 py-2">
+                  <span id="upc-sub-quantity-display">1</span>
+                  <button
+                    type="button"
+                    class="px-4 py-2"
+                    id="upc-sub-quantity-btn-increase"
+                  >
                     <svg
                       width="16"
                       height="16"
@@ -162,7 +195,12 @@
             <div class="flex gap-x-[1.625rem]">
               <div class="flex-1">
                 <label class="mb-1 block">UPC Unit</label>
-                <input class="w-full" type="text" value="859385003096" />
+                <input
+                  class="w-full"
+                  name="upc-unit"
+                  type="text"
+                  value="859385003096"
+                />
               </div>
 
               <div>
@@ -170,7 +208,12 @@
                 <div
                   class="border-line focus:border-line-focus px-4; flex w-[9.563rem] items-center justify-between rounded border py-1"
                 >
-                  <button type="button" class="px-4 py-2">
+                  <input type="hidden" name="upc-unit-quantity" value="1" />
+                  <button
+                    type="button"
+                    class="px-4 py-2"
+                    id="upc-unit-quantity-btn-decrease"
+                  >
                     <svg
                       width="16"
                       height="16"
@@ -187,8 +230,12 @@
                       />
                     </svg>
                   </button>
-                  <span>1</span>
-                  <button type="button" class="px-4 py-2">
+                  <span id="upc-unit-quantity-display">1</span>
+                  <button
+                    type="button"
+                    class="px-4 py-2"
+                    id="upc-unit-quantity-btn-increase"
+                  >
                     <svg
                       width="16"
                       height="16"
@@ -211,11 +258,30 @@
             <!-- //? END: UPC Per Unit --->
 
             <!-- //? START: Barcode Type ID FIELD -->
-            <div class="">
+            <div class="barcode-type-id-field">
               <label class="mb-1 block"> Barcode Type ID</label>
-              <select class="w-full">
-                <option disabled selected>Select</option>
+              <select class="w-full" id="barcode-type" name="barcode-type-id">
+                <option></option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
               </select>
+
+              <!-- //? custom select template -->
+              <template id="custom-select">
+                <div class="relative">
+                  <div
+                    class="selected-preview border-line focus:border-line-focus hover:border-line-focus relative cursor-pointer rounded border py-3 px-4"
+                  >
+                    Select
+                  </div>
+                  <div
+                    class="options border-line shadow-primary absolute z-20 mt-1 hidden max-h-[17.625rem] w-full overflow-y-auto rounded border bg-white"
+                  ></div>
+                </div>
+              </template>
+              <!-- //? end custom select template -->
+              <div class="error-field text-error-base empty:hidden"></div>
             </div>
             <!-- //? END: SKU FIELD -->
 
@@ -252,6 +318,9 @@
     </div>
     <!-- //? END: FORM REGION -->
 
+    <!-- //? JS IMPORTS -->
     <script type="module" src="./src/main.js"></script>
+    <script type="module" src="./src/js/custom-select.js"></script>
+    <script type="module" src="./src/js/form.js"></script>
   </body>
 </html>
