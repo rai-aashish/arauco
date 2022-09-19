@@ -1,3 +1,7 @@
+const CHECK_ICON_SVG = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M20 6L9 17L4 12" stroke="#696158" stroke-opacity="0.8" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>`;
+
 const BarcodeTypeSelect = document.getElementById("barcode-type");
 BarcodeTypeSelect.style.display = "none";
 
@@ -58,7 +62,7 @@ function createCustomOptions() {
     CustomOption.innerHTML = `<div class="flex gap-5 items-center justify-between"><span>${
       option.text
     }</span> ${
-      selectedOption?.value === option.value ? "<span>check</span>" : ""
+      selectedOption?.value === option.value ? CHECK_ICON_SVG : ""
     }</div>`;
     CustomOption.onclick = () => changeSelectedOption(option);
     CustomSelectOptions.appendChild(CustomOption);

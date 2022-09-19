@@ -33,7 +33,7 @@
 
           <form class="mt-6 flex flex-col gap-y-4" id="barcode-module-form">
             <!-- //? START: SKU FIELD -->
-            <div class="">
+            <div class="sku-field">
               <label class="mb-1 block">
                 SKU <span class="text-error-base">*</span></label
               >
@@ -43,6 +43,7 @@
                 type="text"
                 value="5047447-XR03604444444444444444444444444"
               />
+              <div class="error-field text-error-base mt-1 empty:hidden"></div>
             </div>
             <!-- //? END: SKU FIELD -->
 
@@ -75,8 +76,12 @@
                 <div
                   class="border-line focus:border-line-focus px-4; flex w-[9.563rem] items-center justify-between rounded border py-1"
                 >
-                  <input type="hidden" name="upc-piece-quantity" />
-                  <button type="button" class="px-4 py-2">
+                  <input type="hidden" value="1" name="upc-piece-quantity" />
+                  <button
+                    id="upc-piece-quantity-btn-decrease"
+                    type="button"
+                    class="px-4 py-2"
+                  >
                     <svg
                       width="16"
                       height="16"
@@ -93,8 +98,12 @@
                       />
                     </svg>
                   </button>
-                  <span>1</span>
-                  <button type="button" class="px-4 py-2">
+                  <span id="upc-piece-quantity-display">1</span>
+                  <button
+                    id="upc-piece-quantity-btn-increase"
+                    type="button"
+                    class="px-4 py-2"
+                  >
                     <svg
                       width="16"
                       height="16"
@@ -133,8 +142,12 @@
                 <div
                   class="border-line focus:border-line-focus px-4; flex w-[9.563rem] items-center justify-between rounded border py-1"
                 >
-                  <input type="hidden" name="upc-sub-unit-quantity" />
-                  <button type="button" class="px-4 py-2">
+                  <input type="hidden" name="upc-sub-unit-quantity" value="1" />
+                  <button
+                    type="button"
+                    class="px-4 py-2"
+                    id="upc-sub-quantity-btn-decrease"
+                  >
                     <svg
                       width="16"
                       height="16"
@@ -151,8 +164,12 @@
                       />
                     </svg>
                   </button>
-                  <span>1</span>
-                  <button type="button" class="px-4 py-2">
+                  <span id="upc-sub-quantity-display">1</span>
+                  <button
+                    type="button"
+                    class="px-4 py-2"
+                    id="upc-sub-quantity-btn-increase"
+                  >
                     <svg
                       width="16"
                       height="16"
@@ -191,8 +208,12 @@
                 <div
                   class="border-line focus:border-line-focus px-4; flex w-[9.563rem] items-center justify-between rounded border py-1"
                 >
-                  <input type="hidden" name="upc-unit-quantity" />
-                  <button type="button" class="px-4 py-2">
+                  <input type="hidden" name="upc-unit-quantity" value="1" />
+                  <button
+                    type="button"
+                    class="px-4 py-2"
+                    id="upc-unit-quantity-btn-decrease"
+                  >
                     <svg
                       width="16"
                       height="16"
@@ -209,8 +230,12 @@
                       />
                     </svg>
                   </button>
-                  <span>1</span>
-                  <button type="button" class="px-4 py-2">
+                  <span id="upc-unit-quantity-display">1</span>
+                  <button
+                    type="button"
+                    class="px-4 py-2"
+                    id="upc-unit-quantity-btn-increase"
+                  >
                     <svg
                       width="16"
                       height="16"
@@ -233,7 +258,7 @@
             <!-- //? END: UPC Per Unit --->
 
             <!-- //? START: Barcode Type ID FIELD -->
-            <div class="">
+            <div class="barcode-type-id-field">
               <label class="mb-1 block"> Barcode Type ID</label>
               <select class="w-full" id="barcode-type" name="barcode-type-id">
                 <option></option>
@@ -256,6 +281,7 @@
                 </div>
               </template>
               <!-- //? end custom select template -->
+              <div class="error-field text-error-base empty:hidden"></div>
             </div>
             <!-- //? END: SKU FIELD -->
 
