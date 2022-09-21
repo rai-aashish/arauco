@@ -66,6 +66,9 @@ const BarcodeIdTypeSelectField = BarcodeIdTypeField.querySelector(
 );
 const BarcodeIdTypeErrorField =
   BarcodeIdTypeField.querySelector(".error-field");
+
+const BarcodeImage = FormElement.querySelector(".barcode-image");
+
 //? EXPORT THE ELEMENTS
 export {
   FormElement,
@@ -89,6 +92,7 @@ export {
   BarcodeIdTypeField,
   BarcodeIdTypeSelectField,
   BarcodeIdTypeErrorField,
+  BarcodeImage,
   UpcPieceQunatityDisplay,
   IncreaseUpcPieceQuantityBtn,
   DecreaseUpcPieceQuantityBtn,

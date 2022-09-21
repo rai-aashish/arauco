@@ -20,6 +20,7 @@ import {
   DescriptionInputField,
   UpcSubUnitInputField,
 } from "../elements";
+import { resetBarcodeImage } from "../change-barcode-image";
 
 IncreaseUpcPieceQuantityBtn.onclick = () =>
   increaseQuantity(UpcPieceQunatity, UpcPieceQunatityDisplay);
@@ -79,6 +80,9 @@ function clearForm() {
 
   //? reset Barcode type id
   resetCustomSelect();
+
+  //? reset barcode image
+  resetBarcodeImage();
 
   //? clear error states
   clearError();
