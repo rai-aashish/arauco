@@ -63,9 +63,9 @@ function clearForm() {
   DescriptionInputField.value = "";
 
   //? reset upc sub unit field
-  UpcSubUnitQuantity.value = "";
-  UpcSubUnitQuantityDisplay.innerText = "";
   UpcSubUnitInputField.value = "";
+  UpcSubUnitQuantity.value = 1;
+  UpcSubUnitQuantityDisplay.innerText = 1;
 
   //? reset upc piece field
   UpcPieceInputField.value = "";
