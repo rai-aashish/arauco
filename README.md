@@ -1,33 +1,12 @@
-# template-vite-js-tailwind-v3
-
 ## POWERED BY
 
 - **template of:** vite + vanilaJS
 - **tailwindcss:** v3.x
 
-## Started
+## GET STARTED
 
-```bash
-yarn
-# or `npm install`
-```
-
----
-
-## Develop
-
-```bash
-yarn dev
-# or `npm run dev`
-```
-
----
-
-## Build
-
-```bash
-yarn build
-# or `npm run build`
-```
+- run `yarn` to install dependencies
+- run `yarn dev` to start development server
+- run `yarn build` to get production build
 
 Build is served at `dist` folder
