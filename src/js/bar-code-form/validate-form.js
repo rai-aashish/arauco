@@ -1,22 +1,35 @@
-import { form } from "../elements";
+import {
+  FormElement,
+  SkuInputField,
+  SkuErrorField,
+  DescriptionInputField,
+  DescriptionErrorField,
+  UpcPieceInputField,
+  UpcPieceErrorField,
+  UpcPieceQunatity,
+  UpcUnitInputField,
+  UpcUnitErrorField,
+  UpcSubUnitQuantity,
+  UpcUnitQuantity,
+  UpcSubUnitInputField,
+  UpcSubUnitErrorField,
+  BarcodeIdTypeField,
+  BarcodeIdTypeErrorField,
+} from "../elements";
 
 //? get all data
 function getAllData() {
-  const sku = form.querySelector("[name='sku']").value;
-  const description = form.querySelector("[name='description']").value;
-  const upcPiece = form.querySelector("[name='upc-piece']").value;
-  const upcPieceQunatity = form.querySelector(
-    "[name='upc-piece-quantity']"
+  const sku = SkuInputField.value;
+  const description = DescriptionInputField.value;
+  const upcPiece = UpcPieceInputField.value;
+  const upcPieceQunatity = UpcPieceQunatity.value;
+  const upcSubUnit = UpcSubUnitInputField.value;
+  const upcSubUnitQuantity = UpcSubUnitQuantity.value;
+  const upcUnit = UpcUnitInputField.value;
+  const upcUnitQuantity = UpcUnitQuantity.value;
+  const barcodeTypeId = FormElement.querySelector(
+    "[name='barcode-type-id']"
   ).value;
-  const upcSubUnit = form.querySelector("[name='upc-sub-unit']").value;
-  const upcSubUnitQuantity = form.querySelector(
-    "[name='upc-sub-unit-quantity']"
-  ).value;
-  const upcUnit = form.querySelector("[name='upc-unit']").value;
-  const upcUnitQuantity = form.querySelector(
-    "[name='upc-unit-quantity']"
-  ).value;
-  const barcodeTypeId = form.querySelector("[name='barcode-type-id']").value;
 
   return {
     sku,
@@ -31,8 +44,8 @@ function getAllData() {
   };
 }
 
-//? validate form data
-function validateForm() {
+//? validate FormElement data
+function validateFormElement() {
   let error = {},
     isValidated = false;
   const data = getAllData();
@@ -71,88 +84,66 @@ function validateForm() {
 
 //? display validation error
 function displayValidationError(error) {
-  const skuField = form.querySelector(".sku-field");
-  const barcodeTypeIdField = form.querySelector(".barcode-type-id-field");
-  const upcPieceField = form.querySelector(".upc-piece-field");
-  const upcSubUnitField = form.querySelector(".upc-sub-unit-field");
-  const upcUnitField = form.querySelector(".upc-unit-field");
-  const descriptionField = form.querySelector(".description-field");
-
   //? SKU ERROR FIELD
   if (error?.sku) {
-    skuField.querySelector("input").classList.add("border-error-base");
-    skuField.querySelector(".error-field").innerText = error.sku;
+    SkuInputField.classList.add("border-error-base");
+    SkuErrorField.innerText = error.sku;
   } else {
-    skuField.querySelector("input").classList.remove("border-error-base");
-    skuField.querySelector(".error-field").innerText = "";
+    SkuInputField.classList.remove("border-error-base");
+    SkuErrorField.innerText = "";
   }
 
   //? BAR CODE TYPE ID ERROR FIELD
   if (error?.barcodeTypeId) {
-    barcodeTypeIdField
-      .querySelector(".selected-preview")
-      .classList.add("border-error-base");
-    barcodeTypeIdField.querySelector(".error-field").innerText =
-      error.barcodeTypeId;
+    BarcodeIdTypeField.querySelector(".selected-preview").classList.add(
+      "border-error-base"
+    );
+    BarcodeIdTypeErrorField.innerText = error.barcodeTypeId;
   } else {
-    barcodeTypeIdField
-      .querySelector(".selected-preview")
-      .classList.remove("border-error-base");
-    barcodeTypeIdField.querySelector(".error-field").innerText = "";
+    BarcodeIdTypeField.querySelector(".selected-preview").classList.remove(
+      "border-error-base"
+    );
+    BarcodeIdTypeErrorField.innerText = "";
   }
 
   //? UPC PIECE ERROR FIELD
   if (error?.upcPiece) {
-    upcPieceField
-      .querySelector("[name='upc-piece']")
-      .classList.add("border-error-base");
-    upcPieceField.querySelector(".error-field").innerText = error.upcPiece;
+    UpcPieceInputField.classList.add("border-error-base");
+    UpcPieceErrorField.innerText = error.upcPiece;
   } else {
-    upcPieceField
-      .querySelector("[name='upc-piece']")
-      .classList.remove("border-error-base");
-    upcPieceField.querySelector(".error-field").innerText = "";
+    UpcPieceInputField.classList.remove("border-error-base");
+    UpcPieceErrorField.innerText = "";
   }
 
   //? UPC SUB UNIT ERROR FIELD
   if (error?.upcSubUnit) {
-    upcSubUnitField
-      .querySelector("[name='upc-sub-unit']")
-      .classList.add("border-error-base");
-    upcSubUnitField.querySelector(".error-field").innerText = error.upcSubUnit;
+    UpcSubUnitInputField.classList.add("border-error-base");
+    UpcSubUnitErrorField.innerText = error.upcSubUnit;
   } else {
-    upcSubUnitField
-      .querySelector("[name='upc-sub-unit']")
-      .classList.remove("border-error-base");
-    upcSubUnitField.querySelector(".error-field").innerText = "";
+    UpcSubUnitInputField.classList.remove("border-error-base");
+    UpcSubUnitErrorField.innerText = "";
   }
 
   //? UPC UNIT ERROR FIELD
   if (error?.upcUnit) {
-    upcUnitField
-      .querySelector("[name='upc-unit']")
-      .classList.add("border-error-base");
-    upcUnitField.querySelector(".error-field").innerText = error.upcUnit;
+    UpcUnitInputField.classList.add("border-error-base");
+    UpcUnitErrorField.innerText = error.upcUnit;
   } else {
-    upcUnitField
-      .querySelector("[name='upc-unit']")
-      .classList.remove("border-error-base");
-    upcUnitField.querySelector(".error-field").innerText = "";
+    UpcUnitInputField.classList.remove("border-error-base");
+    UpcUnitErrorField.innerText = "";
   }
 
   //? Description ERROR FIELD
   if (error?.description) {
-    descriptionField
-      .querySelector("[name='description']")
-      .classList.add("border-error-base");
-    descriptionField.querySelector(".error-field").innerText =
-      error.description;
+    DescriptionInputField.classList.add("border-error-base");
+    DescriptionErrorField.innerText = error.description;
   } else {
-    descriptionField
-      .querySelector("[name='description']")
-      .classList.remove("border-error-base");
-    descriptionField.querySelector(".error-field").innerText = "";
+    DescriptionInputField.classList.remove("border-error-base");
+    DescriptionErrorField.innerText = "";
   }
 }
 
-export default validateForm;
+export function clearError() {
+  displayValidationError({});
+}
+export default validateFormElement;

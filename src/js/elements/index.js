@@ -1,71 +1,102 @@
-const form = document.getElementById("barcode-module-form");
+const FormElement = document.getElementById("barcode-module-form");
+const FormClearBtn = FormElement.querySelector(".form-clear-btn");
 
-const SkuField = form.querySelector(".sku-field");
+const SkuField = FormElement.querySelector(".sku-field");
 const SkuInputField = SkuField.querySelector("[name='sku']");
 const SkuErrorField = SkuField.querySelector(".error-field");
 
-const description = form.querySelector("[name='description']");
-const upcPiece = form.querySelector("[name='upc-piece']");
-const upcPieceQunatity = form.querySelector("[name='upc-piece-quantity']");
-const upcSubUnit = form.querySelector("[name='upc-sub-unit']");
-const upcSubUnitQuantity = form.querySelector("[name='upc-sub-unit-quantity']");
-const upcUnit = form.querySelector("[name='upc-unit']");
-const upcUnitQuantity = form.querySelector("[name='upc-unit-quantity']");
-const barcodeIdtype = form.querySelector("[name='barcode-type-id']");
+const DescriptionField = FormElement.querySelector(".description-field");
+const DescriptionInputField = DescriptionField.querySelector(
+  "[name='description']"
+);
+const DescriptionErrorField = DescriptionField.querySelector(".error-field");
 
-//? upc piece quantity
-const upcPieceQunatityDisplay = document.getElementById(
+const UpcPieceField = FormElement.querySelector(".upc-piece-field");
+const UpcPieceInputField = UpcPieceField.querySelector("[name='upc-piece']");
+const UpcPieceErrorField = UpcPieceField.querySelector(".error-field");
+const UpcPieceQunatity = UpcPieceField.querySelector(
+  "[name='upc-piece-quantity']"
+);
+const UpcPieceQunatityDisplay = document.getElementById(
   "upc-piece-quantity-display"
 );
-const increaseUpcPieceQuantityBtn = document.getElementById(
+const IncreaseUpcPieceQuantityBtn = document.getElementById(
   "upc-piece-quantity-btn-increase"
 );
-const decreaseUpcPieceQuantityBtn = document.getElementById(
+const DecreaseUpcPieceQuantityBtn = document.getElementById(
   "upc-piece-quantity-btn-decrease"
 );
 
-//? upc sub unit quantity
-const upcSubUnitQuantityDisplay = document.getElementById(
+const UpcSubUnitField = FormElement.querySelector(".upc-sub-unit-field");
+
+const UpcSubUnitInputField = UpcSubUnitField.querySelector(
+  "[name='upc-sub-unit']"
+);
+const UpcSubUnitErrorField = UpcSubUnitField.querySelector(".error-field");
+const UpcSubUnitQuantity = UpcSubUnitField.querySelector(
+  "[name='upc-sub-unit-quantity']"
+);
+const UpcSubUnitQuantityDisplay = document.getElementById(
   "upc-sub-quantity-display"
 );
-const increaseUpcSubUnitQuantityBtn = document.getElementById(
+const IncreaseUpcSubUnitQuantityBtn = document.getElementById(
   "upc-sub-quantity-btn-increase"
 );
-const decreaseUpcSubUnitQuantityBtn = document.getElementById(
+const DecreaseUpcSubUnitQuantityBtn = document.getElementById(
   "upc-sub-quantity-btn-decrease"
 );
 
-//? upc per unit quantity
-const upcUnitQuantityDisplay = document.getElementById(
+const UpcUnitField = FormElement.querySelector(".upc-unit-field");
+const UpcUnitInputField = UpcUnitField.querySelector("[name='upc-unit']");
+const UpcUnitErrorField = UpcUnitField.querySelector(".error-field");
+const UpcUnitQuantity = FormElement.querySelector("[name='upc-unit-quantity']");
+const UpcUnitQuantityDisplay = document.getElementById(
   "upc-unit-quantity-display"
 );
-const increaseUpcUnitQuantityBtn = document.getElementById(
+const IncreaseUpcUnitQuantityBtn = document.getElementById(
   "upc-unit-quantity-btn-increase"
 );
-const decreaseUpcUnitQuantityBtn = document.getElementById(
+const DecreaseUpcUnitQuantityBtn = document.getElementById(
   "upc-unit-quantity-btn-decrease"
 );
+
+const BarcodeIdTypeField = FormElement.querySelector(".barcode-type-id-field");
+const BarcodeIdTypeSelectField = BarcodeIdTypeField.querySelector(
+  "[name='barcode-type-id']"
+);
+const BarcodeIdTypeErrorField =
+  BarcodeIdTypeField.querySelector(".error-field");
 //? EXPORT THE ELEMENTS
 export {
-  form,
+  FormElement,
   SkuField,
   SkuInputField,
   SkuErrorField,
-  description,
-  upcPiece,
-  upcPieceQunatity,
-  upcSubUnit,
-  upcSubUnitQuantity,
-  upcUnit,
-  upcUnitQuantity,
-  barcodeIdtype,
-  upcPieceQunatityDisplay,
-  increaseUpcPieceQuantityBtn,
-  decreaseUpcPieceQuantityBtn,
-  upcSubUnitQuantityDisplay,
-  increaseUpcSubUnitQuantityBtn,
-  decreaseUpcSubUnitQuantityBtn,
-  upcUnitQuantityDisplay,
-  increaseUpcUnitQuantityBtn,
-  decreaseUpcUnitQuantityBtn,
+  DescriptionField,
+  DescriptionInputField,
+  DescriptionErrorField,
+  UpcPieceField,
+  UpcPieceInputField,
+  UpcPieceErrorField,
+  UpcPieceQunatity,
+  UpcSubUnitInputField,
+  UpcSubUnitErrorField,
+  UpcSubUnitQuantity,
+  UpcUnitField,
+  UpcUnitQuantity,
+  UpcUnitInputField,
+  UpcUnitErrorField,
+  BarcodeIdTypeField,
+  BarcodeIdTypeSelectField,
+  BarcodeIdTypeErrorField,
+  UpcPieceQunatityDisplay,
+  IncreaseUpcPieceQuantityBtn,
+  DecreaseUpcPieceQuantityBtn,
+  UpcSubUnitQuantityDisplay,
+  IncreaseUpcSubUnitQuantityBtn,
+  DecreaseUpcSubUnitQuantityBtn,
+  UpcUnitQuantityDisplay,
+  IncreaseUpcUnitQuantityBtn,
+  DecreaseUpcUnitQuantityBtn,
+  FormClearBtn,
 };

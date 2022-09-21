@@ -1,3 +1,5 @@
+import { BarcodeIdTypeSelectField } from "./elements";
+
 const CHECK_ICON_SVG = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M20 6L9 17L4 12" stroke="#696158" stroke-opacity="0.8" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>`;
@@ -12,48 +14,51 @@ const options = Array.apply(null, BarcodeTypeSelect.options).map((option) => {
   };
 });
 
-const CustomSelect = document
-  .getElementById("custom-select")
-  .content.cloneNode(true);
-
-const CustomSelectOptions = CustomSelect.querySelector(".options");
-const CustomSelectSelected = CustomSelect.querySelector(".selected-preview");
-
 //?  STATE VARIABLES
 var selectedOption = null;
 
-CustomSelectSelected.onclick = () => {
-  if (CustomSelectOptions.classList.contains("block")) hideCustomOptions();
-  else showCustomOptions();
-};
+export function createCustomOptions() {
+  const CustomSelect = document
+    .getElementById("custom-select")
+    .content.cloneNode(true);
 
-//? create all custom options
-createCustomOptions();
+  const CustomSelectOptions = CustomSelect.querySelector(".options");
+  const CustomSelectSelected = CustomSelect.querySelector(".selected-preview");
+  CustomSelectSelected.onclick = () => {
+    if (CustomSelectOptions.classList.contains("block")) hideCustomOptions();
+    else showCustomOptions();
+  };
+  //? to close slect on outside click
+  window.addEventListener("click", (e) => {
+    if (e.target.contains(CustomSelectOptions)) hideCustomOptions();
+  });
 
-//? to close slect on outside click
-window.addEventListener("click", (e) => {
-  if (e.target.contains(CustomSelectOptions)) hideCustomOptions();
-});
+  //? HELPER FUNCTIONS
+  function hideCustomOptions() {
+    CustomSelectOptions.classList.remove("block");
+    CustomSelectOptions.classList.add("hidden");
+  }
 
-//? Append all data
-BarcodeTypeSelect.after(CustomSelect);
+  function showCustomOptions() {
+    CustomSelectOptions.classList.remove("hidden");
+    CustomSelectOptions.classList.add("block");
+  }
 
-//? HELPER FUNCTIONS
-function hideCustomOptions() {
-  CustomSelectOptions.classList.remove("block");
-  CustomSelectOptions.classList.add("hidden");
-}
+  function changeSelectedOption(newOption) {
+    selectedOption = newOption;
+    // ? change option selected in original select
+    BarcodeTypeSelect.innerHTML = options.map((option) => {
+      return `<option value="${option.value}" ${
+        newOption.value === option.value ? "selected" : ""
+      }>${option.text}</option>`;
+    });
+    CustomSelectSelected.innerText = selectedOption.text;
+    hideCustomOptions();
+  }
 
-function showCustomOptions() {
-  CustomSelectOptions.classList.remove("hidden");
-  CustomSelectOptions.classList.add("block");
-}
-
-function createCustomOptions() {
   CustomSelectOptions.innerHTML = "";
   options.map((option) => {
     if (!option?.text || !option?.value) return;
-
     const CustomOption = document.createElement("div");
     CustomOption.setAttribute(
       "class",
@@ -67,17 +72,16 @@ function createCustomOptions() {
     CustomOption.onclick = () => changeSelectedOption(option);
     CustomSelectOptions.appendChild(CustomOption);
   });
+  document.getElementById("custom-select-render").innerHTML = "";
+  document.getElementById("custom-select-render").appendChild(CustomSelect);
 }
 
-function changeSelectedOption(newOption) {
-  selectedOption = newOption;
-  // ? change option selected in original select
-  BarcodeTypeSelect.innerHTML = options.map((option) => {
-    return `<option value="${option.value}" ${
-      newOption.value === option.value ? "selected" : ""
-    }>${option.text}</option>`;
-  });
+//? reset select
+export function resetCustomSelect() {
+  BarcodeIdTypeSelectField.value = "";
+  selectedOption = null;
   createCustomOptions();
-  CustomSelectSelected.innerText = selectedOption.text;
-  hideCustomOptions();
 }
+
+//? create all custom options
+createCustomOptions();

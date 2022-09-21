@@ -1,11 +1,11 @@
 import "./button-actions";
-import { form } from "../elements";
+import { FormElement } from "../elements";
 import validateForm from "./validate-form";
 
 //?-----------------------------------------------------------------
 //? ------------      SUBMIT FORM DATA             -----------------
 //?-----------------------------------------------------------------
-form.addEventListener("submit", (e) => {
+FormElement.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const { data, isValidated } = validateForm();
