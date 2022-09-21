@@ -13,7 +13,7 @@
     <title>Arauco</title>
   </head>
   <body>
-    <div class="mb-25 relative">
+    <div class="relative mb-25">
       <!-- //? START: COVER IMAGE -->
       <img
         class="absolute z-0 h-[20.75rem] w-full"
@@ -24,10 +24,10 @@
 
       <!-- //? START: FORM REGION -->
       <div
-        class="gap-x-7.5 bg-w relative z-10 grid grid-cols-4 md:grid-cols-12"
+        class="bg-w relative z-10 grid grid-cols-4 gap-x-7.5 md:grid-cols-12"
       >
         <div
-          class="mt-25 shadow-primary col-span-4 mx-6 rounded bg-white py-16 px-12 md:col-span-10 md:col-start-2 md:mx-0 lg:col-span-6 lg:col-start-4"
+          class="col-span-4 mx-6 mt-25 rounded bg-white py-16 px-12 shadow-primary md:col-span-10 md:col-start-2 md:mx-0 lg:col-span-6 lg:col-start-4"
         >
           <h3 class="text-center text-[1.5rem] font-bold">BARCODE MODULE</h3>
 
@@ -37,223 +37,213 @@
               <label class="mb-1 block">
                 SKU <span class="text-error-base">*</span></label
               >
-              <input
-                name="sku"
-                class="w-full"
-                type="text"
-                value="5047447-XR03604444444444444444444444444"
-              />
-              <div class="error-field text-error-base mt-1 empty:hidden"></div>
+              <input name="sku" class="w-full" type="text" />
+              <div class="error-field mt-1 text-error-base empty:hidden"></div>
             </div>
             <!-- //? END: SKU FIELD -->
 
             <!-- //? START: Description FIELD -->
-            <div class="">
+            <div class="description-field">
               <label class="mb-1 block"> Description</label>
-              <input
-                class="w-full"
-                type="text"
-                name="description"
-                value="MPPRBD E2E 17MM 3 1/2x97 P3RMN"
-              />
+              <input class="w-full" type="text" name="description" />
+              <div class="error-field mt-1 text-error-base empty:hidden"></div>
             </div>
             <!-- //? END: Description FIELD -->
 
             <!-- //? START: UPC PIECE FIELD -->
-            <div class="flex gap-x-[1.625rem]">
-              <div class="flex-1">
-                <label class="mb-1 block"> UPC Piece</label>
-                <input
-                  class="w-full"
-                  type="text"
-                  value="859385003096"
-                  name="upc-piece"
-                />
-              </div>
+            <div class="upc-piece-field">
+              <div class="flex gap-x-[1.625rem]">
+                <div class="flex-1">
+                  <label class="mb-1 block"> UPC Piece</label>
+                  <input class="w-full" type="text" name="upc-piece" />
+                </div>
 
-              <div>
-                <label class="mb-1 block">UPC Per Piece</label>
-                <div
-                  class="border-line focus:border-line-focus px-4; flex w-[9.563rem] items-center justify-between rounded border py-1"
-                >
-                  <input type="hidden" value="1" name="upc-piece-quantity" />
-                  <button
-                    id="upc-piece-quantity-btn-decrease"
-                    type="button"
-                    class="px-4 py-2"
+                <div>
+                  <label class="mb-1 block">UPC Per Piece</label>
+                  <div
+                    class="px-4; flex w-[9.563rem] items-center justify-between rounded border border-line py-1 focus:border-line-focus"
                   >
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <input type="hidden" value="1" name="upc-piece-quantity" />
+                    <button
+                      id="upc-piece-quantity-btn-decrease"
+                      type="button"
+                      class="px-4 py-2"
                     >
-                      <path
-                        d="M13.3334 8H2.66675"
-                        stroke="#696158"
-                        stroke-opacity="0.8"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                      />
-                    </svg>
-                  </button>
-                  <span id="upc-piece-quantity-display">1</span>
-                  <button
-                    id="upc-piece-quantity-btn-increase"
-                    type="button"
-                    class="px-4 py-2"
-                  >
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M13.3334 8H2.66675"
+                          stroke="#696158"
+                          stroke-opacity="0.8"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                        />
+                      </svg>
+                    </button>
+                    <span id="upc-piece-quantity-display">1</span>
+                    <button
+                      id="upc-piece-quantity-btn-increase"
+                      type="button"
+                      class="px-4 py-2"
                     >
-                      <path
-                        d="M8.00008 13.3333V7.99996M8.00008 7.99996V2.66663M8.00008 7.99996H13.3334M8.00008 7.99996H2.66675"
-                        stroke="#696158"
-                        stroke-opacity="0.8"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                      />
-                    </svg>
-                  </button>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M8.00008 13.3333V7.99996M8.00008 7.99996V2.66663M8.00008 7.99996H13.3334M8.00008 7.99996H2.66675"
+                          stroke="#696158"
+                          stroke-opacity="0.8"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                        />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </div>
+              <div class="error-field mt-1 text-error-base empty:hidden"></div>
             </div>
             <!-- //? END: UPC PIECE FIELD -->
 
             <!-- //? START: UPC SUB UNIT-->
-            <div class="flex gap-x-[1.625rem]">
-              <div class="flex-1">
-                <label class="mb-1 block">UPC Sub Unit</label>
-                <input
-                  class="w-full"
-                  type="text"
-                  name="upc-sub-unit"
-                  value="859385003096"
-                />
-              </div>
+            <div class="upc-sub-unit-field">
+              <div class="flex gap-x-[1.625rem]">
+                <div class="flex-1">
+                  <label class="mb-1 block">UPC Sub Unit</label>
+                  <input class="w-full" type="text" name="upc-sub-unit" />
+                </div>
 
-              <div>
-                <label class="mb-1 block">UPC Per Sub Unit</label>
-                <div
-                  class="border-line focus:border-line-focus px-4; flex w-[9.563rem] items-center justify-between rounded border py-1"
-                >
-                  <input type="hidden" name="upc-sub-unit-quantity" value="1" />
-                  <button
-                    type="button"
-                    class="px-4 py-2"
-                    id="upc-sub-quantity-btn-decrease"
+                <div>
+                  <label class="mb-1 block">UPC Per Sub Unit</label>
+                  <div
+                    class="px-4; flex w-[9.563rem] items-center justify-between rounded border border-line py-1 focus:border-line-focus"
                   >
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <input
+                      type="hidden"
+                      value="1"
+                      name="upc-sub-unit-quantity"
+                    />
+                    <button
+                      type="button"
+                      class="px-4 py-2"
+                      id="upc-sub-quantity-btn-decrease"
                     >
-                      <path
-                        d="M13.3334 8H2.66675"
-                        stroke="#696158"
-                        stroke-opacity="0.8"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                      />
-                    </svg>
-                  </button>
-                  <span id="upc-sub-quantity-display">1</span>
-                  <button
-                    type="button"
-                    class="px-4 py-2"
-                    id="upc-sub-quantity-btn-increase"
-                  >
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M13.3334 8H2.66675"
+                          stroke="#696158"
+                          stroke-opacity="0.8"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                        />
+                      </svg>
+                    </button>
+                    <span id="upc-sub-quantity-display">1</span>
+                    <button
+                      type="button"
+                      class="px-4 py-2"
+                      id="upc-sub-quantity-btn-increase"
                     >
-                      <path
-                        d="M8.00008 13.3333V7.99996M8.00008 7.99996V2.66663M8.00008 7.99996H13.3334M8.00008 7.99996H2.66675"
-                        stroke="#696158"
-                        stroke-opacity="0.8"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                      />
-                    </svg>
-                  </button>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M8.00008 13.3333V7.99996M8.00008 7.99996V2.66663M8.00008 7.99996H13.3334M8.00008 7.99996H2.66675"
+                          stroke="#696158"
+                          stroke-opacity="0.8"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                        />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </div>
+              <div class="error-field mt-1 text-error-base empty:hidden"></div>
             </div>
             <!-- //? END: UPC SUB UNIT--->
 
             <!-- //? START: UPC Unit -->
-            <div class="flex gap-x-[1.625rem]">
-              <div class="flex-1">
-                <label class="mb-1 block">UPC Unit</label>
-                <input
-                  class="w-full"
-                  name="upc-unit"
-                  type="text"
-                  value="859385003096"
-                />
-              </div>
 
-              <div>
-                <label class="mb-1 block">UPC Per Unit</label>
-                <div
-                  class="border-line focus:border-line-focus px-4; flex w-[9.563rem] items-center justify-between rounded border py-1"
-                >
-                  <input type="hidden" name="upc-unit-quantity" value="1" />
-                  <button
-                    type="button"
-                    class="px-4 py-2"
-                    id="upc-unit-quantity-btn-decrease"
+            <div class="upc-unit-field">
+              <div class="flex gap-x-[1.625rem]">
+                <div class="flex-1">
+                  <label class="mb-1 block">UPC Unit</label>
+                  <input class="w-full" name="upc-unit" type="text" />
+                </div>
+
+                <div>
+                  <label class="mb-1 block">UPC Per Unit</label>
+                  <div
+                    class="px-4; flex w-[9.563rem] items-center justify-between rounded border border-line py-1 focus:border-line-focus"
                   >
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <input type="hidden" name="upc-unit-quantity" value="1" />
+                    <button
+                      type="button"
+                      class="px-4 py-2"
+                      id="upc-unit-quantity-btn-decrease"
                     >
-                      <path
-                        d="M13.3334 8H2.66675"
-                        stroke="#696158"
-                        stroke-opacity="0.8"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                      />
-                    </svg>
-                  </button>
-                  <span id="upc-unit-quantity-display">1</span>
-                  <button
-                    type="button"
-                    class="px-4 py-2"
-                    id="upc-unit-quantity-btn-increase"
-                  >
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M13.3334 8H2.66675"
+                          stroke="#696158"
+                          stroke-opacity="0.8"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                        />
+                      </svg>
+                    </button>
+                    <span id="upc-unit-quantity-display">1</span>
+                    <button
+                      type="button"
+                      class="px-4 py-2"
+                      id="upc-unit-quantity-btn-increase"
                     >
-                      <path
-                        d="M8.00008 13.3333V7.99996M8.00008 7.99996V2.66663M8.00008 7.99996H13.3334M8.00008 7.99996H2.66675"
-                        stroke="#696158"
-                        stroke-opacity="0.8"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                      />
-                    </svg>
-                  </button>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M8.00008 13.3333V7.99996M8.00008 7.99996V2.66663M8.00008 7.99996H13.3334M8.00008 7.99996H2.66675"
+                          stroke="#696158"
+                          stroke-opacity="0.8"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                        />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </div>
+              <div class="error-field mt-1 text-error-base empty:hidden"></div>
             </div>
             <!-- //? END: UPC Per Unit --->
 
@@ -271,12 +261,12 @@
               <template id="custom-select">
                 <div class="relative">
                   <div
-                    class="selected-preview border-line focus:border-line-focus hover:border-line-focus relative cursor-pointer rounded border py-3 px-4"
+                    class="selected-preview relative cursor-pointer rounded border border-line py-3 px-4 hover:border-line-focus focus:border-line-focus"
                   >
                     Select
                   </div>
                   <div
-                    class="options border-line shadow-primary absolute z-20 mt-1 hidden max-h-[17.625rem] w-full overflow-y-auto rounded border bg-white"
+                    class="options absolute z-20 mt-1 hidden max-h-[17.625rem] w-full overflow-y-auto rounded border border-line bg-white shadow-primary"
                   ></div>
                 </div>
               </template>
@@ -286,7 +276,7 @@
             <!-- //? END: SKU FIELD -->
 
             <!--//? START: BAR CODE FIELD -->
-            <div class="py-4.5 bg-light-grey px-4">
+            <div class="bg-light-grey py-4.5 px-4">
               <span class="mb-1 block">Barcode Format</span>
               <img
                 src="./src/assets/mock/barcode 1.jpg"
@@ -300,13 +290,13 @@
             <div class="mt-4 flex items-center justify-end gap-x-4">
               <button
                 type="button"
-                class="border-primary-600 hover:bg-primary-50 text-primary-600 min-w-[10.938rem] rounded border px-8 py-3"
+                class="min-w-[10.938rem] rounded border border-primary-600 px-8 py-3 text-primary-600 hover:bg-primary-50"
               >
                 Clear
               </button>
               <button
                 type="submit"
-                class="border-primary-600 hover:bg-primary-900 bg-primary-600 min-w-[10.938rem] rounded px-8 py-3 text-white"
+                class="min-w-[10.938rem] rounded border-primary-600 bg-primary-600 px-8 py-3 text-white hover:bg-primary-900"
               >
                 Submit
               </button>
@@ -319,8 +309,7 @@
     <!-- //? END: FORM REGION -->
 
     <!-- //? JS IMPORTS -->
-    <script type="module" src="./src/main.js"></script>
     <script type="module" src="./src/js/custom-select.js"></script>
-    <script type="module" src="./src/js/form.js"></script>
+    <script type="module" src="./src/js/index.js"></script>
   </body>
 </html>
